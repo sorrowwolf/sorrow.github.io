@@ -16,7 +16,7 @@
 <meta property="og:description" content="什么是进程 进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。    进程的概念主要有两点：  继承是一个实体。每一个进程都有它自己的地址空间。 进程是一个“执行中的程序”，存在嵌套关系。  官方文档  中文版：http:&#x2F;&#x2F;nodejs.cn&#x2F;api&#x2F;child_process.html child_process用法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-18T13:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-18T14:09:50.480Z">
+<meta property="article:modified_time" content="2022-02-19T13:21:19.697Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -188,6 +188,9 @@
 <li>fork</li>
 <li>spawn</li>
 </ul>
+<blockquote>
+<p>exec&#x2F;execFile 执行开销比较小，一次性的任务。<br>spawn 执行耗时操作（比如 npm install），需要不断的日志反馈。</p>
+</blockquote>
 <h4 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h4><ul>
 <li>execSync</li>
 <li>execFileSync</li>
