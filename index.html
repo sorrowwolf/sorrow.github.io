@@ -150,6 +150,191 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-sixth" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/27/sixth/">函数式编程</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/27/sixth/" class="archive-article-date">
+  	<time datetime="2022-06-27T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h3><p><strong>相同的输入永远会得到相同的输出</strong>，而且没有任何可观察的副作用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="comment">// 纯函数</span></span><br><span class="line">numbers.slice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line">numbers.slice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line">numbers.slice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line"><span class="comment">// 不纯的函数</span></span><br><span class="line">numbers.splice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line">numbers.splice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [4, 5]</span></span><br><span class="line">numbers.splice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; []</span></span><br></pre></td></tr></table></figure>
+<h4 id="纯函数的好处"><a href="#纯函数的好处" class="headerlink" title="纯函数的好处"></a>纯函数的好处</h4><ul>
+<li><p>可缓存<br>因为纯函数对相同的输入始终有相同的结果，所以可以把纯函数的结果缓存起来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;lodash&#x27;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.PI * r * r</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> getAreaWithMemory = _.memoize(getArea)</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自己模拟一个 memoize 函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoize</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = &#123;&#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> args = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>)</span><br><span class="line">    cache[args] = cache[args] || fn.apply(fn, <span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">return</span> cache[args];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可测试<br>纯函数让测试更方便</p>
+</li>
+<li><p>并行处理</p>
+</li>
+</ul>
+<h3 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAge</span>(<span class="params">age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> min = <span class="number">18</span></span><br><span class="line">  <span class="keyword">return</span> age &gt;= min</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通纯函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAge</span>(<span class="params">min, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> age &gt;= min</span><br><span class="line">&#125;</span><br><span class="line">checkAge(<span class="number">18</span>, <span class="number">24</span>)</span><br><span class="line">checkAge(<span class="number">18</span>, <span class="number">20</span>)</span><br><span class="line">checkAge(<span class="number">18</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAge</span>(<span class="params">min</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> age &gt;= min</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> checkAge = <span class="function"><span class="params">min</span> =&gt;</span> <span class="function"><span class="params">age</span> =&gt;</span> age &gt;= min</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> checkAge18 = checkAge(<span class="number">18</span>);</span><br><span class="line"><span class="keyword">const</span> checkAge20 = checkAge(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">checkAge18(<span class="number">20</span>)</span><br><span class="line">checkAge20(<span class="number">24</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="柯里化-Currying"><a href="#柯里化-Currying" class="headerlink" title="柯里化 (Currying)"></a>柯里化 (Currying)</h4><ul>
+<li>当一个函数有多个参数的时候先传递一部分参数调用它（这部分参数以后永远不变）</li>
+<li>然后返回一个新的函数接收剩余的参数，返回结果</li>
+</ul>
+<h4 id="lodash-中的柯里化函数"><a href="#lodash-中的柯里化函数" class="headerlink" title="lodash 中的柯里化函数"></a>lodash 中的柯里化函数</h4><ul>
+<li><p>_.curry(func)</p>
+<p>功能：创建一个函数，该函数接收一个或多个 func 的参数，如果 func 所需要的参数都被提</p>
+</li>
+</ul>
+<p>供则执行 func 并返回执行的结果。否则继续返回该函数并等待接收剩余的参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;lodash&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> getSum = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c</span><br><span class="line"><span class="keyword">const</span> curried = _.curry(getSum)</span><br><span class="line">curried(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">curried(<span class="number">1</span>, <span class="number">2</span>)(<span class="number">3</span>)</span><br><span class="line">curried(<span class="number">1</span>)(<span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实现curry<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getSum = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">curryFn</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length &lt; fn.length) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> curryFn(...args.concat(<span class="built_in">Array</span>.from(<span class="built_in">arguments</span>)))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn(...args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>柯里化可以让我们给一个函数传递较少的参数得到一个已经记住了某些固定参数的新函数</li>
+<li>这是一种对函数参数的’缓存’</li>
+<li>让函数变的更灵活，让函数的粒度更小</li>
+<li>可以把多元函数转换成一元函数，可以组合使用函数产生强大的功能</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/27/sixth/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-fifth" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/22/fifth/">webpack vs rollup</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/22/fifth/" class="archive-article-date">
+  	<time datetime="2022-05-22T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p><strong>大型SPA项目的模块化构建</strong>，也就是我们常说的web应用。</p>
+<ul>
+<li>通过各种 Loader 处理各种各样的静态资源</li>
+<li>通过各种插件 Plugins 对整体文件进行一些处理</li>
+<li>Code splitting 将公共模块进行提取</li>
+<li>提供一个 webpack-dev-server ,进行本地开发</li>
+<li>支持 HMR 模块热替换</li>
+</ul>
+<h3 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h3><p>rollup 设计之处就是面向 ES module 的，构造出<strong>结构扁平，性能出众</strong>的类库。</p>
+<h3 id="ES-module-的规则"><a href="#ES-module-的规则" class="headerlink" title="ES module 的规则"></a>ES module 的规则</h3><ul>
+<li>import 只能作为模块顶层的语句出现，不能出现在 function 里面或者 if 里面</li>
+<li>ES import 的模块名只能是字符串常量</li>
+<li>不管 import 的语句出现的位置在哪里，在模块初始化的时候所有的 import 都必须已经导入完成</li>
+</ul>
+<h3 id="webpack-的优势"><a href="#webpack-的优势" class="headerlink" title="webpack 的优势"></a>webpack 的优势</h3><ul>
+<li>强大的生态插件</li>
+<li>面向开发应用的特性支持 HMR，按需加载，公共模块提取</li>
+<li>简化 web 开发的环节，图片自动转 base64，资源的缓存</li>
+</ul>
+<h3 id="rollup-的优势"><a href="#rollup-的优势" class="headerlink" title="rollup 的优势"></a>rollup 的优势</h3><ul>
+<li>构建高性能的模块文件，这正是类库所需要的</li>
+<li>编译出来的代码可读性好，内容更小，执行效率更高</li>
+<li>配置比较简单</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/22/fifth/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-fourth" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -208,7 +393,7 @@
 <p><strong>越靠后的左括号，对应的右括号越靠前</strong><br><strong>左括号入栈，右括号出栈，最后栈空了就是合法的</strong><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">有效的括号</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[&#123;&#123;(())&#125;&#125;]]</span><br><span class="line">(((()</span><br><span class="line">&#123;&#125;()&#123;&#125;[]</span><br></pre></td></tr></table></figure>
 <h4 id="场景2-函数调用堆栈"><a href="#场景2-函数调用堆栈" class="headerlink" title="场景2: 函数调用堆栈"></a>场景2: 函数调用堆栈</h4><p><strong>最后调用的函数，最先执行完</strong><br><strong>js解释器使用栈来控制函数的调用顺序</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  sayHi();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;Hi&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">greeting();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  sayHi();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;Hi&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">greeting();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> func1 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  func2();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> func2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  func3();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> func3 = <span class="function">() =&gt;</span> &#123;&#125;;</span><br><span class="line">func1()</span><br></pre></td></tr></table></figure>
 <h3 id="三、队列"><a href="#三、队列" class="headerlink" title="三、队列"></a>三、队列</h3><ul>
 <li>一个<strong>先进先出</strong>的数据结构</li>
 <li>Javascript 中没有队列，但可以用Array实现队列的所有功能<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> queue = [];</span><br><span class="line">queue.push(<span class="number">1</span>);</span><br><span class="line">queue.push(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">const</span> item1 = queue.shift();</span><br><span class="line"><span class="keyword">const</span> item2 = queue.shift();</span><br></pre></td></tr></table></figure>
@@ -227,7 +412,7 @@
 </ul>
 <h4 id="Js中的链表"><a href="#Js中的链表" class="headerlink" title="Js中的链表"></a>Js中的链表</h4><p>Javascript 中没有链表，但可以用Object模拟链表</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">val</span>: <span class="string">&#x27;a&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> b = &#123; <span class="attr">val</span>: <span class="string">&#x27;b&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> c = &#123; <span class="attr">val</span>: <span class="string">&#x27;c&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> d = &#123; <span class="attr">val</span>: <span class="string">&#x27;d&#x27;</span> &#125;;</span><br><span class="line">a.next = b;</span><br><span class="line">b.next = c;</span><br><span class="line">c.next = d;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历链表</span></span><br><span class="line"><span class="keyword">let</span> p = a;</span><br><span class="line"><span class="keyword">while</span> (p) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(p.val);</span><br><span class="line">  p = p.next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入</span></span><br><span class="line"><span class="keyword">const</span> e = &#123; <span class="attr">val</span>: <span class="string">&#x27;e&#x27;</span> &#125;;</span><br><span class="line">c.next = e;</span><br><span class="line">e.next = d;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">c.next = d;</span><br></pre></td></tr></table></figure>
-
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-node-in-a-linked-list/">删除链表中的节点</a></p>
 <h4 id="场景-原型链"><a href="#场景-原型链" class="headerlink" title="场景: 原型链"></a>场景: 原型链</h4><ul>
 <li>原型链的本质是链表</li>
 <li>原型链上的节点是各种原型对象，比如 Function.prototype、Object.prototype…</li>
@@ -266,10 +451,10 @@
 <h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><ul>
 <li>比较所有相邻的元素，如果第一个比第二个大，则交换他们</li>
 <li>一轮下来，可以保证最后一个数是最大的</li>
-<li>执行 n - 1 轮，就可以完成排序<br><a target="_blank" rel="noopener" href="https://visualgo.net/zh/sorting">冒泡排序</a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.bubbleSort());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.bubbleSort = function() &#123;</span></span><br><span class="line"><span class="comment">//   for (let i = 0; i &lt; this.length; i++) &#123;</span></span><br><span class="line"><span class="comment">//     for (let j = 0; j &lt; this.length - 1; j++) &#123;</span></span><br><span class="line"><span class="comment">//       if (this[j] &gt; this[j + 1]) &#123;</span></span><br><span class="line"><span class="comment">//         const temp = this[j];</span></span><br><span class="line"><span class="comment">//         this[j] = this[j + 1];</span></span><br><span class="line"><span class="comment">//         this[j + 1] = temp;</span></span><br><span class="line"><span class="comment">//       &#125;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   return this;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<li>执行 n - 1 轮，就可以完成排序<br><a target="_blank" rel="noopener" href="https://visualgo.net/zh/sorting">冒泡排序</a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.bubbleSort());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.bubbleSort = function() &#123;</span></span><br><span class="line"><span class="comment">//   for (let i = 0; i &lt; this.length; i++) &#123;</span></span><br><span class="line"><span class="comment">//     for (let j = 0; j &lt; this.length - 1; j++) &#123;</span></span><br><span class="line"><span class="comment">//       if (this[j] &gt; this[j + 1]) &#123;</span></span><br><span class="line"><span class="comment">//         const temp = this[j];</span></span><br><span class="line"><span class="comment">//         this[j] = this[j + 1];</span></span><br><span class="line"><span class="comment">//         this[j + 1] = temp;</span></span><br><span class="line"><span class="comment">//       &#125;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   return this;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
 <h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4></li>
 <li>分区：从数组中任意选择一个“基准”，所有比基准小的元素放在基准前面，比基准大的元素放在基准后面</li>
-<li>递归：递归地对基准前后的子数组进行分区<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.quickSort());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.quickSort = function() &#123;</span></span><br><span class="line"><span class="comment">//   const rec = (arr) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     if (arr.length === 1) return arr;</span></span><br><span class="line"><span class="comment">//     const left = [];</span></span><br><span class="line"><span class="comment">//     const right = [];</span></span><br><span class="line"><span class="comment">//     const mid = arr[0];</span></span><br><span class="line"><span class="comment">//     for (let i = 1; i &lt; arr.length; i++) &#123;</span></span><br><span class="line"><span class="comment">//       if (arr[i] &lt; mid) &#123;</span></span><br><span class="line"><span class="comment">//         left.push(arr[i]);</span></span><br><span class="line"><span class="comment">//       &#125; else &#123;</span></span><br><span class="line"><span class="comment">//         right.push(arr[i]);</span></span><br><span class="line"><span class="comment">//       &#125;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     return [...rec(left), mid, ...rec(right)];</span></span><br><span class="line"><span class="comment">//   &#125;;</span></span><br><span class="line"><span class="comment">//   return rec(this);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>递归：递归地对基准前后的子数组进行分区<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.quickSort());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.quickSort = function() &#123;</span></span><br><span class="line"><span class="comment">//   const rec = (arr) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     if (arr.length &lt;= 1) return arr;</span></span><br><span class="line"><span class="comment">//     const left = [];</span></span><br><span class="line"><span class="comment">//     const right = [];</span></span><br><span class="line"><span class="comment">//     const midIndex = Math.floor(arr.length / 2);</span></span><br><span class="line"><span class="comment">//     const mid = arr[midIndex];</span></span><br><span class="line"><span class="comment">//     for (let i = 1; i &lt; arr.length; i++) &#123;</span></span><br><span class="line"><span class="comment">//       if (arr[i] &lt; mid) &#123;</span></span><br><span class="line"><span class="comment">//         left.push(arr[i]);</span></span><br><span class="line"><span class="comment">//       &#125; else &#123;</span></span><br><span class="line"><span class="comment">//         right.push(arr[i]);</span></span><br><span class="line"><span class="comment">//       &#125;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     return [...rec(left), mid, ...rec(right)];</span></span><br><span class="line"><span class="comment">//   &#125;;</span></span><br><span class="line"><span class="comment">//   return rec(this);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="九、搜索"><a href="#九、搜索" class="headerlink" title="九、搜索"></a>九、搜索</h3><blockquote>
 <p>找出数组中某个元素的下标</p>
