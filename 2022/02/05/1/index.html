@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>如何在node中支持EsModule | sorrow</title>
+  <title>博客搭建流程 | sorrow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方式一使用webpack对源码进行构建，使用babel对js进行处理使其适应于低版本node 方式二通过node原生支持ESModule  更改js文件后缀名为.mjs import js的时候，如import ‘.&#x2F;core’;不能省略后缀名，需要写成import ‘.&#x2F;core.mjs’; 执行：node –experimental-modules .&#x2F;bin&amp;#">
+  <meta name="description" content="一、准备工作 nodejs git  二、hexo本地搭建1. hexo安装  1npm install -g hexo-cli   hexo -v 检查是否安装成功 2. 初始化hexo  1hexo init    初始化成功后，hexo文件夹内会出现如下的文件：  node_modules: 依赖包  public：存放生成的页面  scaffolds：生成文章的一些模板  source：用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在node中支持EsModule">
-<meta property="og:url" content="http://example.com/2022/02/11/second/index.html">
+<meta property="og:title" content="博客搭建流程">
+<meta property="og:url" content="http://example.com/2022/02/05/1/index.html">
 <meta property="og:site_name" content="sorrow">
-<meta property="og:description" content="方式一使用webpack对源码进行构建，使用babel对js进行处理使其适应于低版本node 方式二通过node原生支持ESModule  更改js文件后缀名为.mjs import js的时候，如import ‘.&#x2F;core’;不能省略后缀名，需要写成import ‘.&#x2F;core.mjs’; 执行：node –experimental-modules .&#x2F;bin&amp;#">
+<meta property="og:description" content="一、准备工作 nodejs git  二、hexo本地搭建1. hexo安装  1npm install -g hexo-cli   hexo -v 检查是否安装成功 2. 初始化hexo  1hexo init    初始化成功后，hexo文件夹内会出现如下的文件：  node_modules: 依赖包  public：存放生成的页面  scaffolds：生成文章的一些模板  source：用">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-11T14:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-11T14:23:49.846Z">
+<meta property="article:published_time" content="2022-02-05T03:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-12T04:13:40.932Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -47,7 +47,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://sorrowweb.top/images/avatar.jpeg" class="js-avatar">
+			<img src="https://statics.lotsmall.cn/image/20230314/2d9066a06b804614b5afe0edf391c875.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -65,10 +65,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -105,7 +101,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://sorrowweb.top/images/avatar.jpeg" class="js-avatar">
+				<img src="https://statics.lotsmall.cn/image/20230314/2d9066a06b804614b5afe0edf391c875.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -152,34 +148,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-second" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何在node中支持EsModule
+      博客搭建流程
     </h1>
   
 
         
-        <a href="/2022/02/11/second/" class="archive-article-date">
-  	<time datetime="2022-02-11T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-11</time>
+        <a href="/2022/02/05/1/" class="archive-article-date">
+  	<time datetime="2022-02-05T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p>使用webpack对源码进行构建，使用babel对js进行处理使其适应于低版本node</p>
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>通过node原生支持ESModule</p>
-<ol>
-<li>更改js文件后缀名为.mjs</li>
-<li>import js的时候，如import ‘.&#x2F;core’;不能省略后缀名，需要写成import ‘.&#x2F;core.mjs’;</li>
-<li>执行：node –experimental-modules .&#x2F;bin&#x2F;index.mjs (node v14后默认支持)</li>
-</ol>
+        <h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">nodejs</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitforwindows.org/">git</a></li>
+</ul>
+<h3 id="二、hexo本地搭建"><a href="#二、hexo本地搭建" class="headerlink" title="二、hexo本地搭建"></a>二、hexo本地搭建</h3><h4 id="1-hexo安装"><a href="#1-hexo安装" class="headerlink" title="1. hexo安装"></a>1. hexo安装</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>  hexo -v 检查是否安装成功</p>
+<h4 id="2-初始化hexo"><a href="#2-初始化hexo" class="headerlink" title="2. 初始化hexo"></a>2. 初始化hexo</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
+<p>  初始化成功后，hexo文件夹内会出现如下的文件：<br>  node_modules: 依赖包<br>  public：存放生成的页面<br>  scaffolds：生成文章的一些模板<br>  source：用来存放你的文章<br>  themes：放下下载的主题<br>  _config.yml: 博客的核心配置文件（设置主体、标题等属性）</p>
+<h4 id="3-执行npm-install"><a href="#3-执行npm-install" class="headerlink" title="3. 执行npm install"></a>3. 执行npm install</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-启动hexo"><a href="#4-启动hexo" class="headerlink" title="4. 启动hexo"></a>4. 启动hexo</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、HEXO托管至github"><a href="#三、HEXO托管至github" class="headerlink" title="三、HEXO托管至github"></a>三、HEXO托管至github</h3><h4 id="1-创建GitHub仓库"><a href="#1-创建GitHub仓库" class="headerlink" title="1. 创建GitHub仓库"></a>1. 创建GitHub仓库</h4><h4 id="2-配置-config-yml文件"><a href="#2-配置-config-yml文件" class="headerlink" title="2. 配置_config.yml文件"></a>2. 配置_config.yml文件</h4><p>修改_config.yml文件，添加你创建的GitHub仓库地址</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repo: git@github.com:sorrowwolf/sorrowwolf.github.com.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<h4 id="3-安装部署命令deploy-git"><a href="#3-安装部署命令deploy-git" class="headerlink" title="3. 安装部署命令deploy-git"></a>3. 安装部署命令deploy-git</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-提交"><a href="#4-提交" class="headerlink" title="4. 提交"></a>4. 提交</h4>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
       
 
       
@@ -258,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/11/second/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/05/1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,20 +278,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/02/18/third/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/02/11/node-support-esmodule/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Node多进程开发
+          如何在node中支持EsModule
         
       </div>
     </a>
   
-  
-    <a href="/2022/02/05/first/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">博客搭建流程</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -326,7 +327,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 John Doe
+    		&copy; 2023 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -370,25 +371,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -451,38 +444,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     

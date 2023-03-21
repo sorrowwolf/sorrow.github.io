@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | sorrow</title>
+  <title>数据结构与算法 | sorrow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="sorrow">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="前端为什么要学算法  第一个方面是我们天天打交道的网页就是一棵DOM树结构，而涉及到DOM树的操作又有增删改查等，只是这些关于DOM树的接口都已经被封装起来了，我们可以在平时开发中拿来就用，不需要关心底层是如何实现的。而在开发中也是有可能会遇到一些类似于将数组转换为一棵树结构，或者将树转换为数组的算法的，这也需要我们掌握最基本的算法操作，另外关于时间复杂度的问题又涉及到时间换空间或者空间换时间的概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法">
+<meta property="og:url" content="http://example.com/2022/04/24/algorithm/index.html">
 <meta property="og:site_name" content="sorrow">
+<meta property="og:description" content="前端为什么要学算法  第一个方面是我们天天打交道的网页就是一棵DOM树结构，而涉及到DOM树的操作又有增删改查等，只是这些关于DOM树的接口都已经被封装起来了，我们可以在平时开发中拿来就用，不需要关心底层是如何实现的。而在开发中也是有可能会遇到一些类似于将数组转换为一棵树结构，或者将树转换为数组的算法的，这也需要我们掌握最基本的算法操作，另外关于时间复杂度的问题又涉及到时间换空间或者空间换时间的概">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://sorrowweb.top/images/OTime.png">
+<meta property="og:image" content="http://sorrowweb.top/images/queue.jpg">
+<meta property="og:image" content="http://sorrowweb.top/images/linkedList.jpg">
+<meta property="og:image" content="http://sorrowweb.top/images/deep.jpg">
+<meta property="article:published_time" content="2022-04-24T03:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-06T15:14:22.304Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://sorrowweb.top/images/OTime.png">
   
     <link rel="alternative" href="/atom.xml" title="sorrow" type="application/atom+xml">
   
@@ -144,305 +153,292 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-algorithm" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构与算法
+    </h1>
+  
+
+        
+        <a href="/2022/04/24/algorithm/" class="archive-article-date">
+  	<time datetime="2022-04-24T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-24</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前端为什么要学算法"><a href="#前端为什么要学算法" class="headerlink" title="前端为什么要学算法"></a>前端为什么要学算法</h3><blockquote>
+<ul>
+<li>第一个方面是我们天天打交道的网页就是一棵DOM树结构，而涉及到DOM树的操作又有增删改查等，只是这些关于DOM树的接口都已经被封装起来了，我们可以在平时开发中拿来就用，不需要关心底层是如何实现的。而在开发中也是有可能会遇到一些类似于将数组转换为一棵树结构，或者将树转换为数组的算法的，这也需要我们掌握最基本的算法操作，另外关于时间复杂度的问题又涉及到时间换空间或者空间换时间的概念，例如找出两个数组的交集或并集这种也是很常见的日常开发算法题型，而在React框架里又用到了链表相关的数据结构和算法等等，这样的例子举不完。可以说把算法学好对你前端的进阶和后续学习都有很大帮助，当你想要了解一个东西的原理时，很大一部分就是算法发挥作用的时候了，然后又能反过来将这些学到的东西应用到开发中，进一步优化你的程序的执行效率。</li>
+</ul>
+</blockquote>
+<h3 id="什么是复杂度"><a href="#什么是复杂度" class="headerlink" title="什么是复杂度"></a>什么是复杂度</h3><ul>
+<li>程序执行时需要的计算量和内存空间（和代码是否简洁无关）</li>
+<li>复杂度是数量级（方便记忆、推广），不是具体的数字</li>
+<li>一般针对一个具体的算法，而非一个完整的系统</li>
+</ul>
+<h3 id="一、时间复杂度"><a href="#一、时间复杂度" class="headerlink" title="一、时间复杂度"></a>一、时间复杂度</h3><ul>
+<li>一个函数，用大O表示，比如O(1)、O(n)、O(n^2)、O(logN)</li>
+<li>定性描述该算法的运行时间<br><img src="http://sorrowweb.top/images/OTime.png" alt="时间复杂度"></li>
+</ul>
+<h4 id="O-1"><a href="#O-1" class="headerlink" title="O(1)"></a>O(1)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>; </span><br><span class="line">i += <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="O-n"><a href="#O-n" class="headerlink" title="O(n)"></a>O(n)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="O-1-O-n-x3D"><a href="#O-1-O-n-x3D" class="headerlink" title="O(1) + O(n) &#x3D; ?"></a>O(1) + O(n) &#x3D; ?</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>; </span><br><span class="line">i += <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="O-n-O-n-x3D-O-n-2"><a href="#O-n-O-n-x3D-O-n-2" class="headerlink" title="O(n) * O(n) &#x3D; O(n^2)"></a>O(n) * O(n) &#x3D; O(n^2)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j += <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="O-logN"><a href="#O-logN" class="headerlink" title="O(logN)"></a>O(logN)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">  i *= <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、空间复杂度"><a href="#二、空间复杂度" class="headerlink" title="二、空间复杂度"></a>二、空间复杂度</h3><ul>
+<li>一个函数，用大O表示，比如O(1)、O(n)、O(n^2)</li>
+<li>算法在运行过程中临时占用存储空间大小的度量</li>
+</ul>
+<h4 id="O-1-1"><a href="#O-1-1" class="headerlink" title="O(1)"></a>O(1)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>; </span><br><span class="line">i += <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="O-n-1"><a href="#O-n-1" class="headerlink" title="O(n)"></a>O(n)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">1</span>) &#123;</span><br><span class="line">  list.push(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="O-n-2"><a href="#O-n-2" class="headerlink" title="O(n^2)"></a>O(n^2)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> matrix = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">1</span>) &#123;</span><br><span class="line">  matrix.push([]);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j += <span class="number">1</span>) &#123;</span><br><span class="line">    matrix[i].push(j);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="为什么要掌握算法复杂度"><a href="#为什么要掌握算法复杂度" class="headerlink" title="为什么要掌握算法复杂度"></a>为什么要掌握算法复杂度</h4><blockquote>
+<p>如果没有复杂度的概念和敏感度，写程序是非常危险的，例如，代码功能测试正常，但数量大了，程序就会崩溃，对于我们前端开发，时间复杂度尤为重要，时间复杂度达到O(n^2)，算法基本是不可用的。</p>
+</blockquote>
+<h3 id="三、栈"><a href="#三、栈" class="headerlink" title="三、栈"></a>三、栈</h3><ul>
+<li>一个<strong>后进先出</strong>的数据结构</li>
+<li>Javascript 中没有栈，但可以用Array实现栈的所有功能<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> stack = [];</span><br><span class="line">stack.push(<span class="number">1</span>);</span><br><span class="line">stack.push(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">const</span> item1 = stack.pop();</span><br><span class="line"><span class="keyword">const</span> item2 = stack.pop();</span><br></pre></td></tr></table></figure>
+<h4 id="场景1-有效的括号"><a href="#场景1-有效的括号" class="headerlink" title="场景1: 有效的括号"></a>场景1: 有效的括号</h4>编辑器中判断括号是否合理的算法</li>
+</ul>
+<p><strong>越靠后的左括号，对应的右括号越靠前</strong><br><strong>左括号入栈，右括号出栈，最后栈空了就是合法的</strong><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-parentheses/">有效的括号</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[&#123;&#123;(())&#125;&#125;]]</span><br><span class="line">(((()</span><br><span class="line">&#123;&#125;()&#123;&#125;[]</span><br></pre></td></tr></table></figure>
+<h4 id="场景2-函数调用堆栈"><a href="#场景2-函数调用堆栈" class="headerlink" title="场景2: 函数调用堆栈"></a>场景2: 函数调用堆栈</h4><p><strong>最后调用的函数，最先执行完</strong><br><strong>js解释器使用栈来控制函数的调用顺序</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greeting</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  sayHi();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;Hi&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">greeting();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> func1 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  func2();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> func2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  func3();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> func3 = <span class="function">() =&gt;</span> &#123;&#125;;</span><br><span class="line">func1()</span><br></pre></td></tr></table></figure>
+<h3 id="三、队列"><a href="#三、队列" class="headerlink" title="三、队列"></a>三、队列</h3><ul>
+<li>一个<strong>先进先出</strong>的数据结构</li>
+<li>Javascript 中没有队列，但可以用Array实现队列的所有功能<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> queue = [];</span><br><span class="line">queue.push(<span class="number">1</span>);</span><br><span class="line">queue.push(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">const</span> item1 = queue.shift();</span><br><span class="line"><span class="keyword">const</span> item2 = queue.shift();</span><br></pre></td></tr></table></figure>
+<h4 id="场景1-JS异步中的任务队列"><a href="#场景1-JS异步中的任务队列" class="headerlink" title="场景1: JS异步中的任务队列"></a>场景1: JS异步中的任务队列</h4>js是单线程的，无法同时处理异步中的并发任务</li>
+</ul>
+<p><strong>使用任务队列先后处理异步任务</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="http://sorrowweb.top/images/queue.jpg" alt="异步队列"></p>
+<h3 id="四、链表"><a href="#四、链表" class="headerlink" title="四、链表"></a>四、链表</h3><ul>
+<li><strong>多个元素组成的列表</strong></li>
+<li><strong>元素存储不连续，用next指针连在一起</strong><br><img src="http://sorrowweb.top/images/linkedList.jpg" alt="链表"></li>
+</ul>
+<h4 id="数组-VS-链表"><a href="#数组-VS-链表" class="headerlink" title="数组 VS 链表"></a>数组 VS 链表</h4><ul>
+<li>数组：增删非尾部元素时往往需要移动元素</li>
+<li>链表：增删非尾部元素，不需要移动元素，只需要更改next的指向即可</li>
+</ul>
+<h4 id="Js中的链表"><a href="#Js中的链表" class="headerlink" title="Js中的链表"></a>Js中的链表</h4><p>Javascript 中没有链表，但可以用Object模拟链表</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">val</span>: <span class="string">&#x27;a&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> b = &#123; <span class="attr">val</span>: <span class="string">&#x27;b&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> c = &#123; <span class="attr">val</span>: <span class="string">&#x27;c&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> d = &#123; <span class="attr">val</span>: <span class="string">&#x27;d&#x27;</span> &#125;;</span><br><span class="line">a.next = b;</span><br><span class="line">b.next = c;</span><br><span class="line">c.next = d;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历链表</span></span><br><span class="line"><span class="keyword">let</span> p = a;</span><br><span class="line"><span class="keyword">while</span> (p) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(p.val);</span><br><span class="line">  p = p.next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入</span></span><br><span class="line"><span class="keyword">const</span> e = &#123; <span class="attr">val</span>: <span class="string">&#x27;e&#x27;</span> &#125;;</span><br><span class="line">c.next = e;</span><br><span class="line">e.next = d;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">c.next = d;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-node-in-a-linked-list/">删除链表中的节点</a></p>
+<h4 id="场景-原型链"><a href="#场景-原型链" class="headerlink" title="场景: 原型链"></a>场景: 原型链</h4><ul>
+<li>原型链的本质是链表</li>
+<li>原型链上的节点是各种原型对象，比如 Function.prototype、Object.prototype…</li>
+<li>原型链通过__proto__属性连接各种原型对象</li>
+</ul>
+<h3 id="五、集合"><a href="#五、集合" class="headerlink" title="五、集合"></a>五、集合</h3><ul>
+<li>一种<strong>无序且唯一</strong>的数据结构</li>
+<li>ES6中有集合，Set</li>
+<li>集合的常用操作：去重、判断某元素是否在集合中、求交集…<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 去重</span></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [...new <span class="built_in">Set</span>(arr1)];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断元素是否在集合中</span></span><br><span class="line"><span class="keyword">const</span> set1 = <span class="keyword">new</span> <span class="built_in">Set</span>(arr1);</span><br><span class="line"><span class="keyword">const</span> has = set1.has(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 求交集</span></span><br><span class="line"><span class="keyword">const</span> set2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">const</span> set3 = <span class="keyword">new</span> <span class="built_in">Set</span>([...set1].filter(<span class="function"><span class="params">v</span> =&gt;</span> set2.has(v)));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="六、字典"><a href="#六、字典" class="headerlink" title="六、字典"></a>六、字典</h3></li>
+<li>与集合类似，字典也是一种<strong>存储唯一值</strong>的数据结构，但它是以<strong>键值对</strong>的形式来存储</li>
+<li>ES6中有字典，Map</li>
+<li>字典的常用操作：键值对的增删改查<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增</span></span><br><span class="line">m.set(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;aa&#x27;</span>);</span><br><span class="line">m.set(<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;bb&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删</span></span><br><span class="line">m.delete(<span class="string">&#x27;b&#x27;</span>);</span><br><span class="line">m.clear();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改</span></span><br><span class="line">m.set(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;aaa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查</span></span><br><span class="line">m.get(<span class="string">&#x27;a&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="七、树"><a href="#七、树" class="headerlink" title="七、树"></a>七、树</h3><ul>
+<li>一种<strong>分层</strong>数据的抽象模型</li>
+<li>前端工作中常见的树包括：DOM树、级联选择、树形控件</li>
+<li>JS中没有树，但是可以用Object和Array构建树</li>
+<li>树的常用操作：深度&#x2F;广度优先遍历、二叉树先中后序遍历…</li>
+</ul>
+<p><img src="http://sorrowweb.top/images/deep.jpg" alt="深度/广度优先遍历"></p>
+<h4 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h4><ul>
+<li>访问根节点</li>
+<li>对根节点的children挨个进行深度优先遍历<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tree = &#123;</span><br><span class="line">  <span class="attr">val</span>: <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">  <span class="attr">children</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">val</span>: <span class="string">&#x27;b&#x27;</span>,</span><br><span class="line">      <span class="attr">children</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">val</span>: <span class="string">&#x27;d&#x27;</span>,</span><br><span class="line">          <span class="attr">children</span>: [],</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">val</span>: <span class="string">&#x27;e&#x27;</span>,</span><br><span class="line">          <span class="attr">children</span>: [],</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">val</span>: <span class="string">&#x27;c&#x27;</span>,</span><br><span class="line">      <span class="attr">children</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">val</span>: <span class="string">&#x27;f&#x27;</span>,</span><br><span class="line">          <span class="attr">children</span>: [],</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">val</span>: <span class="string">&#x27;g&#x27;</span>,</span><br><span class="line">          <span class="attr">children</span>: [],</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> dfs = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(root.val);</span><br><span class="line">  root.children.forEach(dfs);</span><br><span class="line">&#125;;</span><br><span class="line">dfs(tree);</span><br></pre></td></tr></table></figure>
+<h4 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h4></li>
+<li>新建一个队列，把根节点入队</li>
+<li>把队头出队并访问</li>
+<li>把队头的children挨个入队</li>
+<li>重复第二、三步，直到队列为空<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bfs = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> p = [root];</span><br><span class="line">  <span class="keyword">while</span> (p.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> n = p.shift();</span><br><span class="line">    <span class="built_in">console</span>.log(n.val);</span><br><span class="line">    n.children.forEach(<span class="function"><span class="params">child</span> =&gt;</span> &#123;</span><br><span class="line">      p.push(child);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="场景-遍历JSON的所有节点值"><a href="#场景-遍历JSON的所有节点值" class="headerlink" title="场景:遍历JSON的所有节点值"></a>场景:遍历JSON的所有节点值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> json = &#123;</span><br><span class="line">  <span class="attr">a</span>: &#123;</span><br><span class="line">    <span class="attr">b</span>: &#123;</span><br><span class="line">      <span class="attr">c</span>: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">d</span>: [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// const dfs = (n) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(n);</span></span><br><span class="line"><span class="comment">//   Object.keys(n).forEach(k =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     dfs(n[k]);</span></span><br><span class="line"><span class="comment">//   &#125;)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line">dfs(json)</span><br></pre></td></tr></table></figure>
+<h3 id="八、排序"><a href="#八、排序" class="headerlink" title="八、排序"></a>八、排序</h3><blockquote>
+<p>把某个乱序的数组变成升序或者降序的数组</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><ul>
+<li>比较所有相邻的元素，如果第一个比第二个大，则交换他们</li>
+<li>一轮下来，可以保证最后一个数是最大的</li>
+<li>执行 n - 1 轮，就可以完成排序<br><a target="_blank" rel="noopener" href="https://visualgo.net/zh/sorting">冒泡排序</a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.bubbleSort());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.bubbleSort = function() &#123;</span></span><br><span class="line"><span class="comment">//   for (let i = 0; i &lt; this.length; i++) &#123;</span></span><br><span class="line"><span class="comment">//     for (let j = 0; j &lt; this.length - 1; j++) &#123;</span></span><br><span class="line"><span class="comment">//       if (this[j] &gt; this[j + 1]) &#123;</span></span><br><span class="line"><span class="comment">//         const temp = this[j];</span></span><br><span class="line"><span class="comment">//         this[j] = this[j + 1];</span></span><br><span class="line"><span class="comment">//         this[j + 1] = temp;</span></span><br><span class="line"><span class="comment">//       &#125;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   return this;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4></li>
+<li>分区：从数组中任意选择一个“基准”，所有比基准小的元素放在基准前面，比基准大的元素放在基准后面</li>
+<li>递归：递归地对基准前后的子数组进行分区<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.quickSort());</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.quickSort = function() &#123;</span></span><br><span class="line"><span class="comment">//   const rec = (arr) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     if (arr.length &lt;= 1) return arr;</span></span><br><span class="line"><span class="comment">//     const left = [];</span></span><br><span class="line"><span class="comment">//     const right = [];</span></span><br><span class="line"><span class="comment">//     const midIndex = Math.floor(arr.length / 2);</span></span><br><span class="line"><span class="comment">//     const mid = arr[midIndex];</span></span><br><span class="line"><span class="comment">//     for (let i = 1; i &lt; arr.length; i++) &#123;</span></span><br><span class="line"><span class="comment">//       if (arr[i] &lt; mid) &#123;</span></span><br><span class="line"><span class="comment">//         left.push(arr[i]);</span></span><br><span class="line"><span class="comment">//       &#125; else &#123;</span></span><br><span class="line"><span class="comment">//         right.push(arr[i]);</span></span><br><span class="line"><span class="comment">//       &#125;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     return [...rec(left), mid, ...rec(right)];</span></span><br><span class="line"><span class="comment">//   &#125;;</span></span><br><span class="line"><span class="comment">//   return rec(this);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="九、搜索"><a href="#九、搜索" class="headerlink" title="九、搜索"></a>九、搜索</h3><blockquote>
+<p>找出数组中某个元素的下标</p>
+</blockquote>
+<h4 id="顺序搜索"><a href="#顺序搜索" class="headerlink" title="顺序搜索"></a>顺序搜索</h4><ul>
+<li>遍历数组</li>
+<li>找到跟目标值相等的元素，就返回它的下标<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].sequentialSearch(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">console</span>.log(res)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.sequentialSearch = function(item) &#123;</span></span><br><span class="line"><span class="comment">//   for(let i = 0; i &lt; this.length; i+=1)&#123;</span></span><br><span class="line"><span class="comment">//     if(this[i] === item) &#123;</span></span><br><span class="line"><span class="comment">//       return i</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   return -1</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h4><ul>
+<li>从数组的中间元素开始，如果中间元素正好是目标值，则搜索结束</li>
+<li>如果目标值大于或者小于中间元素，则在大于或者小于中间元素的那一半数组中搜索<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].binarySearch(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">console</span>.log(res)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array.prototype.binarySearch = function(item) &#123;</span></span><br><span class="line"><span class="comment">//   let low = 0</span></span><br><span class="line"><span class="comment">//   let high = this.length - 1</span></span><br><span class="line"><span class="comment">//   while(low &lt;= high)&#123;</span></span><br><span class="line"><span class="comment">//     const mid = Math.floor((low + high) / 2)</span></span><br><span class="line"><span class="comment">//     const element = this[mid]</span></span><br><span class="line"><span class="comment">//     if(element &lt; item) &#123;</span></span><br><span class="line"><span class="comment">//       low = mid + 1</span></span><br><span class="line"><span class="comment">//     &#125;else if(element &gt; item) &#123;</span></span><br><span class="line"><span class="comment">//       high = mid - 1</span></span><br><span class="line"><span class="comment">//     &#125;else &#123;</span></span><br><span class="line"><span class="comment">//       return mid</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   return -1</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="十、分而治之"><a href="#十、分而治之" class="headerlink" title="十、分而治之"></a>十、分而治之</h3></li>
+<li>分而治之是<strong>算法设计</strong>中的一种方法</li>
+<li>它将一个问题<strong>分</strong>成多个和原问题相似的小问题，<strong>递归解决</strong>小问题，再将结果<strong>合</strong>并以解决原来的问题<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/guess-number-higher-or-lower/">猜数字大小</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/invert-binary-tree/">翻转二叉树</a></li>
+</ul>
+<h3 id="十一、动态规划"><a href="#十一、动态规划" class="headerlink" title="十一、动态规划"></a>十一、动态规划</h3><ul>
+<li>动态规划是<strong>算法设计</strong>中的一种方法</li>
+<li>它将一个问题分解为<strong>相互重叠</strong>的子问题，通过反复求解子问题，来解决原来的问题<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/climbing-stairs/">爬楼梯</a></li>
+</ul>
+<h3 id="十二、贪心算法"><a href="#十二、贪心算法" class="headerlink" title="十二、贪心算法"></a>十二、贪心算法</h3><ul>
+<li>贪心算法是<strong>算法设计</strong>中的一种方法</li>
+<li>期盼通过每个阶段的<strong>局部最优</strong>选择，从而达到全局的最优</li>
+<li>结果并不一定最优<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/assign-cookies/">分发饼干</a></li>
+</ul>
+<h3 id="十三、回溯算法"><a href="#十三、回溯算法" class="headerlink" title="十三、回溯算法"></a>十三、回溯算法</h3><ul>
+<li>回溯算法是<strong>算法设计</strong>中的一种方法</li>
+<li>回溯算法是一种<strong>渐进式</strong>寻找并构建问题解决方式的策略</li>
+<li>回溯算法会先从一个可能的动作开始解决问题，如果不行，就回溯并选择另一个动作，直到将问题解决<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutations/">全排列</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/01/GC/" class="archive-article-date">
-  	<time datetime="2023-02-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/01/GC/">GC算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/23/typescript/" class="archive-article-date">
-  	<time datetime="2023-01-23T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/23/typescript/">TypeScript详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/01/10/" class="archive-article-date">
-  	<time datetime="2023-01-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/01/10/">项目打包构建优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/10/https/" class="archive-article-date">
-  	<time datetime="2022-11-10T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/10/https/">https</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/24/algorithm/" alt="微信分享二维码">
+    </div>
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/01/vue3/" class="archive-article-date">
-  	<time datetime="2022-11-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-01</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2022/05/22/webpack/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          webpack vs rollup
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/12/attack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端攻击</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/01/vue3/">vue3</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/01/blob-slice/" class="archive-article-date">
-  	<time datetime="2022-10-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/01/blob-slice/">大文件上传和断点续传</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/28/nuxtJs/" class="archive-article-date">
-  	<time datetime="2022-08-28T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/28/nuxtJs/">nuxtJs发布部署</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/10/7/" class="archive-article-date">
-  	<time datetime="2022-07-10T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/10/7/">发布订阅模式和观察者模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/05/first-screen-optimization/" class="archive-article-date">
-  	<time datetime="2022-07-05T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/05/first-screen-optimization/">h5页面如何进行首屏优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/27/function-code/" class="archive-article-date">
-  	<time datetime="2022-06-27T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/27/function-code/">函数式编程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -466,8 +462,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

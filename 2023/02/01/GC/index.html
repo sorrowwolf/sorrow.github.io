@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | sorrow</title>
+  <title>GC算法 | sorrow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="sorrow">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="GC的定义与作用 GC就是垃圾回收机制的简写 GC可以找到内存中的垃圾、并释放和回收空间 算法就是工作时查找和回收所遵循的规则  GC里的垃圾是什么 程序中不再需要使用的对象12345function fn() &amp;#123;  name &#x3D; &amp;#x27;lg&amp;#x27;  return &#96;$&amp;#123;name&amp;#125; is a coder&#96;&amp;#125;fn() 程序中不能再被访问到的对象12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GC算法">
+<meta property="og:url" content="http://example.com/2023/02/01/GC/index.html">
 <meta property="og:site_name" content="sorrow">
+<meta property="og:description" content="GC的定义与作用 GC就是垃圾回收机制的简写 GC可以找到内存中的垃圾、并释放和回收空间 算法就是工作时查找和回收所遵循的规则  GC里的垃圾是什么 程序中不再需要使用的对象12345function fn() &amp;#123;  name &#x3D; &amp;#x27;lg&amp;#x27;  return &#96;$&amp;#123;name&amp;#125; is a coder&#96;&amp;#125;fn() 程序中不能再被访问到的对象12">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-01T03:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-10T03:42:43.621Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -144,305 +148,244 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-GC" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      GC算法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/01/GC/" class="archive-article-date">
+
+        
+        <a href="/2023/02/01/GC/" class="archive-article-date">
   	<time datetime="2023-02-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/01/GC/">GC算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/23/typescript/" class="archive-article-date">
-  	<time datetime="2023-01-23T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/23/typescript/">TypeScript详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/01/10/" class="archive-article-date">
-  	<time datetime="2023-01-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/01/10/">项目打包构建优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <h3 id="GC的定义与作用"><a href="#GC的定义与作用" class="headerlink" title="GC的定义与作用"></a>GC的定义与作用</h3><ul>
+<li>GC就是垃圾回收机制的简写</li>
+<li>GC可以找到内存中的垃圾、并释放和回收空间</li>
+<li>算法就是工作时查找和回收所遵循的规则</li>
+</ul>
+<h3 id="GC里的垃圾是什么"><a href="#GC里的垃圾是什么" class="headerlink" title="GC里的垃圾是什么"></a>GC里的垃圾是什么</h3><ul>
+<li>程序中不再需要使用的对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  name = <span class="string">&#x27;lg&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;name&#125;</span> is a coder`</span></span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br></pre></td></tr></table></figure></li>
+<li>程序中不能再被访问到的对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> name = <span class="string">&#x27;lg&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;name&#125;</span> is a coder`</span></span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><ul>
+<li>核心思想：设置引用数，判断当前引用数是否为0</li>
+<li>引用计数器</li>
+<li>引用关系改变时修改引用数字</li>
+<li>引用数字为0时立即回收</li>
+</ul>
+<ol>
+<li>优点</li>
+</ol>
+<ul>
+<li>发现垃圾时立即回收</li>
+<li>最大限度减少程序暂停</li>
+</ul>
+<ol start="2">
+<li>缺点</li>
+</ol>
+<ul>
+<li>无法回收循环引用的对象</li>
+<li>时间开销大（需要维护引用计数）</li>
+</ul>
+<h3 id="标记清除法"><a href="#标记清除法" class="headerlink" title="标记清除法"></a>标记清除法</h3><ul>
+<li>核心思想：分标记和清除两个阶段完成</li>
+<li>遍历所有对象找标记活动对象</li>
+<li>遍历所有对象清除没有标记的对象</li>
+<li>回收相应的空间</li>
+</ul>
+<ol>
+<li>优点</li>
+</ol>
+<ul>
+<li>可以回收循环引用的对象</li>
+</ul>
+<ol start="2">
+<li>缺点</li>
+</ol>
+<ul>
+<li>容易产生碎片化空间，浪费空间</li>
+<li>不会立即回收垃圾对象</li>
+</ul>
+<h3 id="标记整理法"><a href="#标记整理法" class="headerlink" title="标记整理法"></a>标记整理法</h3><ul>
+<li>标记整理可以看做是标记清除的增强</li>
+<li>标记阶段的操作和标记清除一致</li>
+<li>清除阶段会先执行整理，移动对象位置</li>
+</ul>
+<ol>
+<li>优点</li>
+</ol>
+<ul>
+<li>减少碎片化空间</li>
+</ul>
+<ol start="2">
+<li>缺点</li>
+</ol>
+<ul>
+<li>不会立即回收垃圾对象</li>
+</ul>
+<h3 id="内存问题的外在表现"><a href="#内存问题的外在表现" class="headerlink" title="内存问题的外在表现"></a>内存问题的外在表现</h3><ul>
+<li>页面出现延迟加载或经常性暂停</li>
+<li>页面持续性出现糟糕的性能</li>
+<li>页面性能随着时间的延迟越来越差</li>
+</ul>
+<h3 id="界定内存问题的标准"><a href="#界定内存问题的标准" class="headerlink" title="界定内存问题的标准"></a>界定内存问题的标准</h3><ul>
+<li>内存泄露：内存使用持续升高</li>
+<li>内存膨胀：在多数设备上都存在性能问题</li>
+<li>频繁垃圾回收：通过内存变化图进行分析</li>
+</ul>
+<h3 id="监控内存的几种方式"><a href="#监控内存的几种方式" class="headerlink" title="监控内存的几种方式"></a>监控内存的几种方式</h3><ul>
+<li>浏览器任务管理器</li>
+<li>Timeline 时序图记录</li>
+<li>堆快照查找分离DOM</li>
+<li>判断是否存在频繁的垃圾回收</li>
+</ul>
+<h4 id="为什么要确定频繁的垃圾回收"><a href="#为什么要确定频繁的垃圾回收" class="headerlink" title="为什么要确定频繁的垃圾回收"></a>为什么要确定频繁的垃圾回收</h4><ul>
+<li>GC工作时应用程序是停止的</li>
+<li>频繁且过长的GC会导致应用卡死</li>
+<li>用户使用中感知应用卡顿</li>
+</ul>
+<h4 id="怎么判断频繁的垃圾回收"><a href="#怎么判断频繁的垃圾回收" class="headerlink" title="怎么判断频繁的垃圾回收"></a>怎么判断频繁的垃圾回收</h4><ul>
+<li>Timeline 中频繁的上升下降</li>
+<li>任务管理器中数据频繁的增加减小</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/10/https/" class="archive-article-date">
-  	<time datetime="2022-11-10T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/10/https/">https</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/02/01/GC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/01/vue3/" class="archive-article-date">
-  	<time datetime="2022-11-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/01/23/typescript/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TypeScript详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/01/vue3/">vue3</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/01/blob-slice/" class="archive-article-date">
-  	<time datetime="2022-10-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/01/blob-slice/">大文件上传和断点续传</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/28/nuxtJs/" class="archive-article-date">
-  	<time datetime="2022-08-28T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/28/nuxtJs/">nuxtJs发布部署</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/10/7/" class="archive-article-date">
-  	<time datetime="2022-07-10T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/10/7/">发布订阅模式和观察者模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/05/first-screen-optimization/" class="archive-article-date">
-  	<time datetime="2022-07-05T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/05/first-screen-optimization/">h5页面如何进行首屏优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/27/function-code/" class="archive-article-date">
-  	<time datetime="2022-06-27T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/27/function-code/">函数式编程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -466,8 +409,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

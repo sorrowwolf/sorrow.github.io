@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | sorrow</title>
+  <title>TypeScript详解 | sorrow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="sorrow">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="TS的基础概念什么是TS 他是js的一个超集，在原有语法基础上，添加了可选静态类型以及基于类的原生面向对象编程 面向项目：TS - 面向解决大型负载项目，架构设计及代码维护有一定的优势JS - 脚本化语言，简单场景且轻量化     自主检测：TS - 编译时检测，主动发现并纠正错误JS - 运行时报错   类型规范上：TS - 弱类型，支持动态和静态类型检测JS - 弱类型，无静态类型选项   运">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript详解">
+<meta property="og:url" content="http://example.com/2023/01/23/typescript/index.html">
 <meta property="og:site_name" content="sorrow">
+<meta property="og:description" content="TS的基础概念什么是TS 他是js的一个超集，在原有语法基础上，添加了可选静态类型以及基于类的原生面向对象编程 面向项目：TS - 面向解决大型负载项目，架构设计及代码维护有一定的优势JS - 脚本化语言，简单场景且轻量化     自主检测：TS - 编译时检测，主动发现并纠正错误JS - 运行时报错   类型规范上：TS - 弱类型，支持动态和静态类型检测JS - 弱类型，无静态类型选项   运">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-23T03:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-30T14:59:21.782Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -144,305 +148,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-typescript" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/01/GC/" class="archive-article-date">
-  	<time datetime="2023-02-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/01/GC/">GC算法</a>
+    <h1 class="article-title" itemprop="name">
+      TypeScript详解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/23/typescript/" class="archive-article-date">
+        
+        <a href="/2023/01/23/typescript/" class="archive-article-date">
   	<time datetime="2023-01-23T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/23/typescript/">TypeScript详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/01/10/" class="archive-article-date">
-  	<time datetime="2023-01-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/01/10/">项目打包构建优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <h3 id="TS的基础概念"><a href="#TS的基础概念" class="headerlink" title="TS的基础概念"></a>TS的基础概念</h3><h4 id="什么是TS"><a href="#什么是TS" class="headerlink" title="什么是TS"></a>什么是TS</h4><ul>
+<li>他是js的一个超集，在原有语法基础上，添加了可选静态类型以及基于类的原生面向对象编程<blockquote>
+<p>面向项目：<br>TS - 面向解决大型负载项目，架构设计及代码维护有一定的优势<br>JS - 脚本化语言，简单场景且轻量化</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>自主检测：<br>TS - 编译时检测，主动发现并纠正错误<br>JS - 运行时报错</p>
+</blockquote>
+<blockquote>
+<p>类型规范上：<br>TS - 弱类型，支持动态和静态类型检测<br>JS - 弱类型，无静态类型选项</p>
+</blockquote>
+<blockquote>
+<p>运行流程：<br>TS - 依赖编译，依靠编译打包实时生成浏览器可以运行的js<br>JS - 可直接在浏览器中运行</p>
+</blockquote>
+<blockquote>
+<p>复杂特效：<br>TS - 模块化、泛型、接口…</p>
+</blockquote>
+<h4 id="安装运行"><a href="#安装运行" class="headerlink" title="安装运行"></a>安装运行</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g typescript</span><br><span class="line">tsc -v</span><br><span class="line">tsc test.ts</span><br></pre></td></tr></table></figure>
+
+<h4 id="TS基础类型和写法"><a href="#TS基础类型和写法" class="headerlink" title="TS基础类型和写法"></a>TS基础类型和写法</h4><ul>
+<li><p>boolean, string, number, array, undefined, null</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="literal">true</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> d = <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">let</span> e = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> f = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// ts</span></span><br><span class="line"><span class="keyword">let</span> a: <span class="built_in">boolean</span> = <span class="literal">true</span></span><br><span class="line"><span class="keyword">let</span> b: <span class="built_in">string</span> = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">let</span> c: <span class="built_in">number</span> = <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> d: <span class="literal">undefined</span> = <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">let</span> e: <span class="literal">null</span> = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> f: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> f: <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tuple - 元组</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tupleArray: [<span class="built_in">string</span>, <span class="built_in">boolean</span>];</span><br><span class="line">tupleArray = [<span class="string">&#x27;1&#x27;</span>, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>enum - 枚举</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数字类枚举 - 默认从0开始，依次递增</span></span><br><span class="line"><span class="built_in">enum</span> Score &#123;</span><br><span class="line">  BAD,      <span class="comment">// 0</span></span><br><span class="line">  NG,       <span class="comment">// 1</span></span><br><span class="line">  GOOD,     <span class="comment">// 2</span></span><br><span class="line">  PERFECT,  <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> score: Score = Score.BAD</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串类型枚举</span></span><br><span class="line"><span class="built_in">enum</span> Score &#123;</span><br><span class="line">  BAD = <span class="string">&#x27;BAD&#x27;</span>,</span><br><span class="line">  NG = <span class="string">&#x27;NG&#x27;</span>,</span><br><span class="line">  GOOD = <span class="string">&#x27;GOOD&#x27;</span>,</span><br><span class="line">  PERFECT = <span class="string">&#x27;PERFECT&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反向映射</span></span><br><span class="line"><span class="built_in">enum</span> Score &#123;</span><br><span class="line">  BAD,      <span class="comment">// 0</span></span><br><span class="line">  NG,       <span class="comment">// 1</span></span><br><span class="line">  GOOD,     <span class="comment">// 2</span></span><br><span class="line">  PERFECT,  <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> scoreName = Score[<span class="number">0</span>] <span class="comment">// BAD</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 异构</span></span><br><span class="line"><span class="built_in">enum</span> Enum &#123;</span><br><span class="line">  A,</span><br><span class="line">  B,</span><br><span class="line">  C = <span class="string">&#x27;C&#x27;</span>,</span><br><span class="line">  D = <span class="string">&#x27;D&#x27;</span>,</span><br><span class="line">  E = <span class="number">6</span>,</span><br><span class="line">  F,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// js实现异构</span></span><br><span class="line"><span class="keyword">let</span> Enum;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">Enum</span>) </span>&#123;</span><br><span class="line">  Enum[Enum[<span class="string">&#x27;A&#x27;</span>] = <span class="number">0</span>] = <span class="string">&#x27;A&#x27;</span></span><br><span class="line">  Enum[Enum[<span class="string">&#x27;B&#x27;</span>] = <span class="number">1</span>] = <span class="string">&#x27;B&#x27;</span></span><br><span class="line">  Enum[<span class="string">&#x27;C&#x27;</span>] = <span class="string">&#x27;C&#x27;</span></span><br><span class="line">  Enum[<span class="string">&#x27;D&#x27;</span>] = <span class="string">&#x27;D&#x27;</span></span><br><span class="line">  Enum[Enum[<span class="string">&#x27;E&#x27;</span>] = <span class="number">6</span>] = <span class="string">&#x27;E&#x27;</span></span><br><span class="line">  Enum[Enum[<span class="string">&#x27;F&#x27;</span>] = <span class="number">7</span>] = <span class="string">&#x27;F&#x27;</span></span><br><span class="line">&#125;)(Enum || (Enum = &#123;&#125;))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>any, unknown, void</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// any 绕过所有类型检查 =&gt; 类型检测和编译筛查全部失效</span></span><br><span class="line"><span class="comment">// unknown 绕过赋值检查 =&gt; 禁止更改传递</span></span><br><span class="line"><span class="comment">// void (与any相反) - 声明函数返回值</span></span><br><span class="line"><span class="comment">// never - 永不返回 or 永远error</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>object &#x2F; Object &#x2F; {} - 对象</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> ObjectConstructor &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 - interface"></a>接口 - interface</h3><ul>
+<li>对于行为的抽象，具体行为内容由实际变量实现<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 描述一个对象的内容</span></span><br><span class="line"><span class="keyword">interface</span> Class &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">time</span>: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a: Class = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;hh&#x27;</span>,</span><br><span class="line">  <span class="attr">time</span>: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只读 &amp; 任意</span></span><br><span class="line"><span class="keyword">interface</span> Class &#123;</span><br><span class="line">  <span class="keyword">readonly</span> name: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">time</span>: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 任意可添加属性</span></span><br><span class="line"><span class="keyword">interface</span> Class &#123;</span><br><span class="line">  <span class="keyword">readonly</span> name: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">time</span>: <span class="built_in">number</span></span><br><span class="line">  [propName: <span class="built_in">string</span>]: <span class="built_in">any</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="交叉类型-amp"><a href="#交叉类型-amp" class="headerlink" title="交叉类型 - &amp;"></a>交叉类型 - &amp;</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 合并</span></span><br><span class="line"><span class="keyword">interface</span> A &#123;x: D&#125;</span><br><span class="line"><span class="keyword">interface</span> B &#123;x: E&#125;</span><br><span class="line"><span class="keyword">interface</span> C &#123;x: F&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> D &#123;d: <span class="built_in">boolean</span>&#125;</span><br><span class="line"><span class="keyword">interface</span> E &#123;e: <span class="built_in">string</span>&#125;</span><br><span class="line"><span class="keyword">interface</span> F &#123;f: <span class="built_in">number</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ABC = A &amp; B &amp; C</span><br><span class="line"></span><br><span class="line"><span class="comment">// 合并冲突</span></span><br><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">b</span>: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> B &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="built_in">number</span></span><br><span class="line">  <span class="attr">c</span>: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> AB = A &amp; B</span><br><span class="line"><span class="keyword">let</span> ab: AB = &#123;</span><br><span class="line">  <span class="attr">b</span>: <span class="string">&#x27;123&#x27;</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="string">&#x27;123&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// =&gt; 合并关系是且 =&gt; a: never</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="断言-类型声明、转换（和编译器的告知交流）"><a href="#断言-类型声明、转换（和编译器的告知交流）" class="headerlink" title="断言 - 类型声明、转换（和编译器的告知交流）"></a>断言 - 类型声明、转换（和编译器的告知交流）</h3><ul>
+<li>编译时作用<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 尖括号形式声明</span></span><br><span class="line"><span class="keyword">let</span> anyValue: <span class="built_in">any</span> = <span class="string">&#x27;hi&#x27;</span></span><br><span class="line"><span class="keyword">let</span> anyLength: <span class="built_in">number</span> = (&lt;<span class="built_in">string</span>&gt;anyValue).length</span><br><span class="line"></span><br><span class="line"><span class="comment">// as声明</span></span><br><span class="line"><span class="keyword">let</span> anyValue: <span class="built_in">any</span> = <span class="string">&#x27;hi&#x27;</span></span><br><span class="line"><span class="keyword">let</span> anyLength: <span class="built_in">number</span> = (anyValue <span class="keyword">as</span> <span class="built_in">string</span>).length</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非空判断 - 只确定是不是空</span></span><br><span class="line"><span class="keyword">let</span> score!: <span class="built_in">number</span></span><br><span class="line">scoreFn()</span><br><span class="line"><span class="built_in">console</span>.log(score * <span class="number">2</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scoreFn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  score = <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="类型守卫-保障在语法规定的范围内，额外的进行确认"><a href="#类型守卫-保障在语法规定的范围内，额外的进行确认" class="headerlink" title="类型守卫 - 保障在语法规定的范围内，额外的进行确认"></a>类型守卫 - 保障在语法规定的范围内，额外的进行确认</h3><ul>
+<li>多态性 - 多重状态（多种类型）<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in - 定义属性场景下类型的确认</span></span><br><span class="line"><span class="keyword">interface</span> Teacher &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">course</span>: <span class="built_in">string</span>[]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> Student &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">startTime</span>: <span class="built_in">Date</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Class = Teacher | Student</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startCourse</span> (<span class="params">cls: Class</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">&#x27;course&#x27;</span> <span class="keyword">in</span> cls) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;teacher&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">&#x27;startTime&#x27;</span> <span class="keyword">in</span> cls) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;student&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// typeof / instanceof - 类型分类场景下的身份确认</span></span><br><span class="line"><span class="comment">// 自定义类型</span></span><br><span class="line"><span class="keyword">const</span> isTeacher = <span class="function"><span class="keyword">function</span> (<span class="params">cls: Teacher | Student</span>): <span class="title">cls</span> <span class="title">is</span> <span class="title">Teacher</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;course&#x27;</span> <span class="keyword">in</span> cls</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="TS进阶"><a href="#TS进阶" class="headerlink" title="TS进阶"></a>TS进阶</h3><h4 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line">  start(name: <span class="built_in">number</span>, <span class="attr">score</span>: <span class="built_in">number</span>): <span class="built_in">number</span></span><br><span class="line">  start(name: <span class="built_in">string</span>, <span class="attr">score</span>: <span class="built_in">string</span>): <span class="built_in">string</span></span><br><span class="line">  start(name: <span class="built_in">any</span>, <span class="attr">score</span>: <span class="built_in">any</span>): <span class="built_in">any</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> name === <span class="string">&#x27;string&#x27;</span> || <span class="keyword">typeof</span> score === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;student&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;teacher&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> course = <span class="keyword">new</span> Course()</span><br><span class="line"><span class="keyword">const</span> res = course.start(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="泛型-重用"><a href="#泛型-重用" class="headerlink" title="泛型 - 重用"></a>泛型 - 重用</h4><ul>
+<li>让模块可以支持多种数据类型的 - 让类型和值一样，可以被赋值和传递<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传值变量</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startClass</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">name: T, score: U</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> name + score</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 变量和确定值混合使用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startClass</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">name: T, score: U</span>): <span class="title">String</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> name + score</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 逻辑类型也不确定</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startClass</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">name: T, score: U</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (name + score) <span class="keyword">as</span> T</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用时</span></span><br><span class="line">startClass&lt;<span class="built_in">number</span>, <span class="built_in">string</span>&gt;(<span class="number">100</span>, <span class="string">&#x27;100&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// T,U,K - 键值类   V - 值类  E - 元素类</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="装饰器-decorator"><a href="#装饰器-decorator" class="headerlink" title="装饰器 - decorator"></a>装饰器 - decorator</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Zhaowa</span>(<span class="params">target: <span class="built_in">Function</span></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  target.prototype.startClass = <span class="function"><span class="keyword">function</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Zhaowa</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// startClass() &#123;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 属性装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameWrapper</span>(<span class="params">target: <span class="built_in">any</span>, key: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(target, key, &#123;</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@nameWrapper</span></span><br><span class="line">  <span class="keyword">public</span> name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法装饰器</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/10/https/" class="archive-article-date">
-  	<time datetime="2022-11-10T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/10/https/">https</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/23/typescript/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/11/01/vue3/" class="archive-article-date">
-  	<time datetime="2022-11-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-01</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/02/01/GC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          GC算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/01/10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目打包构建优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/11/01/vue3/">vue3</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/10/01/blob-slice/" class="archive-article-date">
-  	<time datetime="2022-10-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/10/01/blob-slice/">大文件上传和断点续传</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/28/nuxtJs/" class="archive-article-date">
-  	<time datetime="2022-08-28T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/28/nuxtJs/">nuxtJs发布部署</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/10/7/" class="archive-article-date">
-  	<time datetime="2022-07-10T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/10/7/">发布订阅模式和观察者模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/05/first-screen-optimization/" class="archive-article-date">
-  	<time datetime="2022-07-05T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/05/first-screen-optimization/">h5页面如何进行首屏优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/27/function-code/" class="archive-article-date">
-  	<time datetime="2022-06-27T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/27/function-code/">函数式编程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -466,8 +380,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

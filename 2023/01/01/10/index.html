@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>函数式编程 | sorrow</title>
+  <title>项目打包构建优化 | sorrow</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="纯函数相同的输入永远会得到相同的输出，而且没有任何可观察的副作用 123456789101112131415let numbers &#x3D; [1, 2, 3, 4, 5]&#x2F;&#x2F; 纯函数numbers.slice(0, 3)&#x2F;&#x2F; &#x3D;&gt; [1, 2, 3]numbers.slice(0, 3)&#x2F;&#x2F; &#x3D;&gt; [1, 2, 3]numbers.slice(0, 3)&#x2F;&#x2F; &#x3D;&gt; [1, 2, 3]">
+  <meta name="description" content="构建性能优化方法查找并诊断性能瓶颈 构建速度分析：影响构建性能和开发效率 构建体积分析：影响页面访问性能  构建性能优化常用方法 通过多进程加快构建速度 通过分包减小构建目标容量 减少构建目录加快构建速度  构建速度分析：speed-measure-webpack-plugin使用thread-loader多进程提升构建速度构建体积分析：webpack-bundle-analyzer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数式编程">
-<meta property="og:url" content="http://example.com/2022/06/27/sixth/index.html">
+<meta property="og:title" content="项目打包构建优化">
+<meta property="og:url" content="http://example.com/2023/01/01/10/index.html">
 <meta property="og:site_name" content="sorrow">
-<meta property="og:description" content="纯函数相同的输入永远会得到相同的输出，而且没有任何可观察的副作用 123456789101112131415let numbers &#x3D; [1, 2, 3, 4, 5]&#x2F;&#x2F; 纯函数numbers.slice(0, 3)&#x2F;&#x2F; &#x3D;&gt; [1, 2, 3]numbers.slice(0, 3)&#x2F;&#x2F; &#x3D;&gt; [1, 2, 3]numbers.slice(0, 3)&#x2F;&#x2F; &#x3D;&gt; [1, 2, 3]">
+<meta property="og:description" content="构建性能优化方法查找并诊断性能瓶颈 构建速度分析：影响构建性能和开发效率 构建体积分析：影响页面访问性能  构建性能优化常用方法 通过多进程加快构建速度 通过分包减小构建目标容量 减少构建目录加快构建速度  构建速度分析：speed-measure-webpack-plugin使用thread-loader多进程提升构建速度构建体积分析：webpack-bundle-analyzer">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-27T03:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-27T14:58:13.660Z">
+<meta property="article:published_time" content="2023-01-01T03:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-09T13:51:21.225Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -47,7 +47,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://sorrowweb.top/images/avatar.jpeg" class="js-avatar">
+			<img src="https://statics.lotsmall.cn/image/20230314/2d9066a06b804614b5afe0edf391c875.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -65,10 +65,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -105,7 +101,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://sorrowweb.top/images/avatar.jpeg" class="js-avatar">
+				<img src="https://statics.lotsmall.cn/image/20230314/2d9066a06b804614b5afe0edf391c875.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -152,63 +148,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-sixth" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-10" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      函数式编程
+      项目打包构建优化
     </h1>
   
 
         
-        <a href="/2022/06/27/sixth/" class="archive-article-date">
-  	<time datetime="2022-06-27T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
+        <a href="/2023/01/01/10/" class="archive-article-date">
+  	<time datetime="2023-01-01T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h3><p><strong>相同的输入永远会得到相同的输出</strong>，而且没有任何可观察的副作用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="comment">// 纯函数</span></span><br><span class="line">numbers.slice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line">numbers.slice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line">numbers.slice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line"><span class="comment">// 不纯的函数</span></span><br><span class="line">numbers.splice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 3]</span></span><br><span class="line">numbers.splice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; [4, 5]</span></span><br><span class="line">numbers.splice(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment">// =&gt; []</span></span><br></pre></td></tr></table></figure>
-<h4 id="纯函数的好处"><a href="#纯函数的好处" class="headerlink" title="纯函数的好处"></a>纯函数的好处</h4><ul>
-<li><p>可缓存<br>因为纯函数对相同的输入始终有相同的结果，所以可以把纯函数的结果缓存起来</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;lodash&#x27;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.PI * r * r</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> getAreaWithMemory = _.memoize(getArea)</span><br><span class="line"><span class="built_in">console</span>.log(getAreaWithMemory(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自己模拟一个 memoize 函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoize</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = &#123;&#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> args = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>)</span><br><span class="line">    cache[args] = cache[args] || fn.apply(fn, <span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">return</span> cache[args];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可测试<br>纯函数让测试更方便</p>
-</li>
-<li><p>并行处理</p>
-</li>
+        <h3 id="构建性能优化方法"><a href="#构建性能优化方法" class="headerlink" title="构建性能优化方法"></a>构建性能优化方法</h3><h4 id="查找并诊断性能瓶颈"><a href="#查找并诊断性能瓶颈" class="headerlink" title="查找并诊断性能瓶颈"></a>查找并诊断性能瓶颈</h4><ul>
+<li>构建速度分析：影响构建性能和开发效率</li>
+<li>构建体积分析：影响页面访问性能</li>
 </ul>
-<h3 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAge</span>(<span class="params">age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> min = <span class="number">18</span></span><br><span class="line">  <span class="keyword">return</span> age &gt;= min</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通纯函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAge</span>(<span class="params">min, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> age &gt;= min</span><br><span class="line">&#125;</span><br><span class="line">checkAge(<span class="number">18</span>, <span class="number">24</span>)</span><br><span class="line">checkAge(<span class="number">18</span>, <span class="number">20</span>)</span><br><span class="line">checkAge(<span class="number">18</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAge</span>(<span class="params">min</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> age &gt;= min</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> checkAge = <span class="function"><span class="params">min</span> =&gt;</span> <span class="function"><span class="params">age</span> =&gt;</span> age &gt;= min</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> checkAge18 = checkAge(<span class="number">18</span>);</span><br><span class="line"><span class="keyword">const</span> checkAge20 = checkAge(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">checkAge18(<span class="number">20</span>)</span><br><span class="line">checkAge20(<span class="number">24</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="柯里化-Currying"><a href="#柯里化-Currying" class="headerlink" title="柯里化 (Currying)"></a>柯里化 (Currying)</h4><ul>
-<li>当一个函数有多个参数的时候先传递一部分参数调用它（这部分参数以后永远不变）</li>
-<li>然后返回一个新的函数接收剩余的参数，返回结果</li>
+<h4 id="构建性能优化常用方法"><a href="#构建性能优化常用方法" class="headerlink" title="构建性能优化常用方法"></a>构建性能优化常用方法</h4><ul>
+<li>通过多进程加快构建速度</li>
+<li>通过分包减小构建目标容量</li>
+<li>减少构建目录加快构建速度</li>
 </ul>
-<h4 id="lodash-中的柯里化函数"><a href="#lodash-中的柯里化函数" class="headerlink" title="lodash 中的柯里化函数"></a>lodash 中的柯里化函数</h4><ul>
-<li><p>_.curry(func)</p>
-<p>功能：创建一个函数，该函数接收一个或多个 func 的参数，如果 func 所需要的参数都被提</p>
-</li>
-</ul>
-<p>供则执行 func 并返回执行的结果。否则继续返回该函数并等待接收剩余的参数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">&#x27;lodash&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> getSum = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c</span><br><span class="line"><span class="keyword">const</span> curried = _.curry(getSum)</span><br><span class="line">curried(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">curried(<span class="number">1</span>, <span class="number">2</span>)(<span class="number">3</span>)</span><br><span class="line">curried(<span class="number">1</span>)(<span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>实现curry<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getSum = <span class="function">(<span class="params">a, b, c</span>) =&gt;</span> a + b + c</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">curryFn</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length &lt; fn.length) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> curryFn(...args.concat(<span class="built_in">Array</span>.from(<span class="built_in">arguments</span>)))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn(...args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>柯里化可以让我们给一个函数传递较少的参数得到一个已经记住了某些固定参数的新函数</li>
-<li>这是一种对函数参数的’缓存’</li>
-<li>让函数变的更灵活，让函数的粒度更小</li>
-<li>可以把多元函数转换成一元函数，可以组合使用函数产生强大的功能</li>
-</ul>
+<p><strong>构建速度分析：speed-measure-webpack-plugin</strong><br>使用<strong>thread-loader</strong>多进程提升构建速度<br><strong>构建体积分析：webpack-bundle-analyzer</strong></p>
 
       
 
@@ -288,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/27/sixth/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/01/10/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,9 +271,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2023/01/23/typescript/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          TypeScript详解
+        
+      </div>
+    </a>
   
-    <a href="/2022/05/22/fifth/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">webpack vs rollup</div>
+  
+    <a href="/2022/11/10/https/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">https</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -347,7 +325,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 John Doe
+    		&copy; 2023 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -391,25 +369,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -472,38 +442,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     
